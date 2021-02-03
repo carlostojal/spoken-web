@@ -1,0 +1,15 @@
+
+.button {
+  font-family: "Raleway Bold";
+  font-size: 1em;
+  background-color: #FF6B00;
+  color: #FFFFFF;
+  padding: 1em;
+  border: none;
+  border-radius: 5em;
+}
+
+.secondary {
+  background-color: #FFB783;
+  color: #000000;
+}
