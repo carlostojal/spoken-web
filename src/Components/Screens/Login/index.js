@@ -25,6 +25,7 @@ function Login() {
   useEffect(() => {
     if(loginData && loginData.getToken) {
       localStorage.setItem("access_token", loginData.getToken);
+      history.replace("/");
     }
   }, [loginData]);
 

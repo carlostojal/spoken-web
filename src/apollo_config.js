@@ -1,9 +1,9 @@
-import { ApolloClient, InMemoryCache, HttpLink, split, createHttpLink } from '@apollo/client';
+import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
 const httpLink = new createHttpLink({
   uri: `${process.env.REACT_APP_APOLLO_ADDRESS}:${process.env.REACT_APP_APOLLO_PORT}${process.env.REACT_APP_APOLLO_ENDPOINT}`,
-  credentials: "same-origin"
+  credentials: "include"
 });
 
 const authLink = setContext((_, { headers }) => {
