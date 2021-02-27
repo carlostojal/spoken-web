@@ -2,6 +2,7 @@
   "name": "spoken-web",
   "version": "0.1.0",
   "private": true,
+  "homepage": ".",
   "dependencies": {
     "@apollo/client": "^3.3.7",
     "@apollo/link-error": "^2.0.0-beta.3",

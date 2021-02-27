@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useQuery } from "@apollo/client";
+import { useLazyQuery } from "@apollo/client";
 import { useHistory } from "react-router-dom";
 import queries from "./queries";
 
@@ -7,13 +7,15 @@ export default function SessionChecker(props) {
 
   const history = useHistory();
 
-  const { loading: refreshLoading, data: refreshData, error: refreshError } = useQuery(queries.REFRESH_TOKEN);
+  const [refreshSession, { data: refreshData, error: refreshError }] = useLazyQuery(queries.REFRESH_TOKEN);
 
-  let out = null;
+  useEffect(() => {
+    refreshSession();
+  }, []);
 
   useEffect(() => {
     if(refreshData) {
-      console.log(refreshData);
+      // console.log(refreshData);
     }
   }, [refreshData]);
 
@@ -22,7 +24,7 @@ export default function SessionChecker(props) {
       console.log(refreshError);
       history.replace("/login");
     }
-  }, [refreshError]);
+  }, [refreshError, history]);
 
-  return out;
+  return null;
 }

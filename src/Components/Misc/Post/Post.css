@@ -1,0 +1,46 @@
+
+.post {
+  border-radius: 1em;
+  background-color: #343434;
+}
+
+.post_header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: .5em;
+  padding: .75em;
+}
+
+.post_user {
+  cursor: pointer;
+}
+
+.post_user_username {
+  font-family: "Raleway Bold";
+  font-size: 1.1em;
+  color: #FFFFFF;
+}
+
+.post_user_name {
+  font-family: "Raleway Light";
+  font-size: .9em;
+  color: #B4B4B4;
+}
+
+.post_time {
+  color: #ACACAC;
+}
+
+.post_img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.post_text {
+  font-family: "Raleway Light";
+  font-size: 1.2em;
+  color: #DDDDDD;
+  margin-bottom: 2em;
+  padding: .75em;
+}

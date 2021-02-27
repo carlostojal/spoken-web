@@ -1,22 +1,22 @@
 
 @font-face {
   font-family: "Raleway";
-  src: url("/fonts/Raleway/static/Raleway-Regular.ttf");
+  src: url("./assets/fonts/Raleway/static/Raleway-Regular.ttf");
 }
 
 @font-face {
   font-family: "Raleway Thin";
-  src: url("/fonts/Raleway/static/Raleway-Thin.ttf");
+  src: url("./assets/fonts/Raleway/static/Raleway-Thin.ttf");
 }
 
 @font-face {
   font-family: "Raleway Light";
-  src: url("/fonts/Raleway/static/Raleway-Light.ttf");
+  src: url("./assets/fonts/Raleway/static/Raleway-Light.ttf");
 }
 
 @font-face {
   font-family: "Raleway Bold";
-  src: url("/fonts/Raleway/static/Raleway-Bold.ttf");
+  src: url("./assets/fonts/Raleway/static/Raleway-Bold.ttf");
 }
 
 * {

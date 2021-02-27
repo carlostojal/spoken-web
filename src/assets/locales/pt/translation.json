@@ -98,7 +98,7 @@
     },
     "errors": {
       "user_not_found": "O utilizador não existe.",
-      "wrong_password": "Password errada.",
+      "wrong_password": "Palavra-passe errada.",
       "email_not_confirmed": "O email não foi verificado.",
       "wrong_confirmation_code": "Código de confirmação incorreto.",
       "confirmation_on_timeout": "Por favor aguarde um momento até reenviar o email de confirmação.",

@@ -15,8 +15,8 @@ function Login() {
   const { t } = useTranslation();
   const history = useHistory();
 
-  const [username, setUsername] = useState();
-  const [password, setPassword] = useState();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   const [doLogin, { loading: loginLoading, data: loginData, error: loginError }] = useLazyQuery(queries.GET_TOKEN, {
     fetchPolicy: "network-only"
@@ -27,12 +27,12 @@ function Login() {
       localStorage.setItem("access_token", loginData.getToken);
       history.replace("/");
     }
-  }, [loginData]);
+  }, [loginData, history]);
 
   useEffect(() => {
     if(loginError)
-      swal(t("strings.error"), loginError.graphQLErrors[0].message, "error");
-  }, [loginError]);
+      swal(t("strings.error"), t(`errors.${loginError.graphQLErrors[0].message.toLowerCase()}`), "warning");
+  }, [loginError, t]);
 
   const onUsernameChange = (username) => {
     setUsername(username);
@@ -43,7 +43,10 @@ function Login() {
   }
 
   const onLogin = () => {
-    doLogin({ variables: { username, password } })
+    if(username === "" || password === "")
+      swal(t("strings.error"), t("errors.empty_fields"), "warning");
+    else
+      doLogin({ variables: { username, password } });
   }
 
   const onRegister = () => {

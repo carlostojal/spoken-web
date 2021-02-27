@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useLazyQuery, useQuery } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import SessionChecker from "../../Misc/SessionChecker";
 import Header from "../../Misc/Header";
 import queries from "./queries";
@@ -23,7 +23,7 @@ export default function Home() {
       setSalutation(t("screens.feed.labels.good_afternoon"));
     else
       setSalutation(t("screens.feed.labels.good_evening"));
-  }, []);
+  }, [t]);
 
   return (
     <>
