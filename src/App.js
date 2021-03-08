@@ -10,6 +10,7 @@ import './App.css';
 
 import client from "./apollo_config";
 import "./i18n_config";
+import Nav from "./Components/Misc/Nav";
 import Login from './Components/Screens/Login';
 import Signup from "./Components/Screens/Signup";
 import Home from "./Components/Screens/Home";
@@ -22,6 +23,7 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <>
+          <Nav/>
           <Switch>
             <Route exact path="/login">
               <Login />

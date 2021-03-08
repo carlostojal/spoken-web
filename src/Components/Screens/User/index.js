@@ -9,13 +9,20 @@ import Post from "../../Misc/Post";
 
 function User() {
 
-  const { id: userId } = useParams();
+  let { id: userId } = useParams();
 
+  if(userId) {
+    if(userId === "me")
+      userId = null;
+    else
+      userId = parseInt(userId)
+  }
+  
   const [posts, setPosts] = useState([]);
 
   const { loading: userLoading, error: userError, data: userData } = useQuery(queries.GET_USER_DATA, {
     variables: {
-      id: parseInt(userId)
+      id: userId === "me" ? null : parseInt(userId)
     }
   });
 

@@ -1,0 +1,14 @@
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+
+.nav .tab {
+  cursor: pointer;
+  color: white;
+}
