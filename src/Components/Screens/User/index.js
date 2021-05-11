@@ -20,13 +20,13 @@ function User() {
   
   const [posts, setPosts] = useState([]);
 
-  const { loading: userLoading, error: userError, data: userData } = useQuery(queries.GET_USER_DATA, {
+  const { data: userData } = useQuery(queries.GET_USER_DATA, {
     variables: {
       id: userId === "me" ? null : parseInt(userId)
     }
   });
 
-  const { loading: postsLoading, error: postsError, data: postsData } = useQuery(queries.GET_USER_POSTS, {
+  const { data: postsData } = useQuery(queries.GET_USER_POSTS, {
     variables: {
       page: 1,
       perPage: 15,

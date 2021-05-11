@@ -15,7 +15,7 @@ function Post({ post }) {
   useEffect(() => {
     const time = postDateFormat(parseInt(post.time));
     setTimeFormatted(`${time.value}${time.unit}`);
-  }, []);
+  }, [post]);
 
   return (
     <div className="post">
@@ -29,7 +29,7 @@ function Post({ post }) {
         </div>
       </div>
       <div className="post_body">
-        <img src={post.media.url} className="post_img" />
+        <img src={post.media.url} className="post_img" alt={post.text} />
         <div className="post_text">
           {post.text}
         </div>

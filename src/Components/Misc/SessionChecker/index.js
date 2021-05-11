@@ -11,7 +11,7 @@ export default function SessionChecker(props) {
 
   useEffect(() => {
     refreshSession();
-  }, []);
+  }, [refreshSession]);
 
   useEffect(() => {
     if(refreshData) {
