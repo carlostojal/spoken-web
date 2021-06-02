@@ -3,7 +3,6 @@ import { useTranslation } from "react-i18next";
 import platform from "platform";
 import Header from "../../Misc/Header";
 import Button from "../../Misc/Button";
-import SessionChecker from "../../Misc/SessionChecker";
 
 export default function Download() {
 
@@ -13,7 +12,6 @@ export default function Download() {
 
   return (
     <>
-      <SessionChecker />
       <Header>
         { t("screens.download.title") }
       </Header>
