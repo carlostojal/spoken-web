@@ -76,6 +76,14 @@
           "follow": "Seguir",
           "unfollow": "Deixar de seguir"
         }
+      },
+      "download": {
+        "title": "Descarregar",
+        "labels": {
+          "download": "Descarregar",
+          "description": "Obtenha a experiência completa com a aplicação móvel.",
+          "unavailable": "Ainda não disponível para o seu sistema operativo."
+        }
       }
     },
     "misc": {
@@ -94,7 +102,11 @@
     },
     "strings": {
       "success": "Sucesso",
-      "error": "Erro"
+      "error": "Erro",
+      "ok": "OK",
+      "cancel": "Cancelar",
+      "yes": "Sim",
+      "no": "Não"
     },
     "errors": {
       "user_not_found": "O utilizador não existe.",

@@ -6,6 +6,7 @@ import queries from "./queries";
 import SessionChecker from "../../Misc/SessionChecker";
 import Header from "../../Misc/Header";
 import Post from "../../Misc/Post";
+import Nav from "../../Misc/Nav";
 
 function User() {
 
@@ -14,15 +15,13 @@ function User() {
   if(userId) {
     if(userId === "me")
       userId = null;
-    else
-      userId = parseInt(userId)
   }
   
   const [posts, setPosts] = useState([]);
 
   const { data: userData } = useQuery(queries.GET_USER_DATA, {
     variables: {
-      id: userId === "me" ? null : parseInt(userId)
+      id: userId === "me" ? null : userId
     }
   });
 
@@ -30,7 +29,7 @@ function User() {
     variables: {
       page: 1,
       perPage: 15,
-      user_id:  parseInt(userId)
+      user_id:  userId
     }
   });
 
@@ -45,15 +44,11 @@ function User() {
       <Header subtitle={userData && userData.getUserData ? `${userData.getUserData.name} ${userData.getUserData.surname}` : "..." }>
         { userData && userData.getUserData ? userData.getUserData.username : "..." }
       </Header>
+      <Nav />
       <div>
-      {
-        posts.map((post) => (
-          <>
-            <div style={{height: "1em"}}></div>
-            <Post post={post} key={post.id} />
-          </>
-        ))
-      }
+      { posts.map((post) => {
+          return <Post post={post} key={post._id} />
+      })}
       </div>
     </>
   )

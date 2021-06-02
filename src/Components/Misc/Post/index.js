@@ -6,8 +6,6 @@ import "./Post.css";
 
 function Post({ post }) {
 
-  console.log(post);
-
   const [timeFormatted, setTimeFormatted] = useState("");
 
   const history = useHistory();
@@ -20,7 +18,7 @@ function Post({ post }) {
   return (
     <div className="post">
       <div className="post_header">
-        <div className="post_user" onClick={() => history.push(`/user/${post.poster.id}`)}>
+        <div className="post_user" onClick={() => history.push(`/user/${post.poster._id}`)}>
           <p className="post_user_username">{post.poster.username}</p>
           <p className="post_user_name">{`${post.poster.name} ${post.poster.surname}`}</p>
         </div>
@@ -29,7 +27,9 @@ function Post({ post }) {
         </div>
       </div>
       <div className="post_body">
-        <img src={post.media.url} className="post_img" alt={post.text} />
+        { post.media && 
+          <img src={`${process.env.REACT_APP_MEDIA_SERVER_ADDRESS}:${process.env.REACT_APP_MEDIA_SERVER_PORT}/media/${post.media._id}`} className="post_img" alt={post.text} />
+        }
         <div className="post_text">
           {post.text}
         </div>

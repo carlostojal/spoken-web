@@ -1,7 +1,7 @@
 import React from 'react';
 import { ApolloProvider } from "@apollo/client";
 import {
-  HashRouter as Router,
+  BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
@@ -10,11 +10,11 @@ import './App.css';
 
 import client from "./apollo_config";
 import "./i18n_config";
-import Nav from "./Components/Misc/Nav";
 import Login from './Components/Screens/Login';
 import Signup from "./Components/Screens/Signup";
 import Home from "./Components/Screens/Home";
 import User from "./Components/Screens/User";
+import Download from "./Components/Screens/Download";
 
 require("dotenv").config();
 
@@ -23,7 +23,6 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <>
-          <Nav/>
           <Switch>
             <Route exact path="/login">
               <Login />
@@ -36,6 +35,9 @@ function App() {
             </Route>
             <Route path="/user/:id">
               <User />
+            </Route>
+            <Route path="/download">
+              <Download />
             </Route>
           </Switch>
         </>

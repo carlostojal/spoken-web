@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useLazyQuery } from "@apollo/client";
 import swal from "@sweetalert/with-react";
+import platform from "platform";
 import "./Login.css";
 import Header from "../../Misc/Header";
 import TextField from "../../Misc/TextField";
@@ -14,6 +15,8 @@ function Login() {
 
   const { t } = useTranslation();
   const history = useHistory();
+
+  const os = platform.parse(window.navigator.userAgent).os;
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -33,6 +36,22 @@ function Login() {
     if(loginError)
       swal(t("strings.error"), t(`errors.${loginError.graphQLErrors[0].message.toLowerCase()}`), "warning");
   }, [loginError, t]);
+
+  useEffect(() => {
+    if(os.family === "Android") {
+      swal({
+        title: t("screens.download.title"), 
+        text: t("screens.download.labels.description"),
+        buttons: {
+          ok: t("strings.ok"),
+          cancel: t("strings.cancel")
+        }
+      }).then((result) => {
+        if(result && result === "ok")
+          history.push("/download");
+      });
+    }
+  }, [t, os, history]);
 
   const onUsernameChange = (username) => {
     setUsername(username);

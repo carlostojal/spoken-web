@@ -69,12 +69,20 @@
           "change_upload": "Change image",
           "image_uploaded": "Image uploaded.",
           "success": "Post created successfully."
-        },
-        "profile": {
-          "labels": {
-            "follow": "Follow",
-            "unfollow": "Unfollow"
-          }
+        }
+      },
+      "profile": {
+        "labels": {
+          "follow": "Follow",
+          "unfollow": "Unfollow"
+        }
+      },
+      "download": {
+        "title": "Download",
+        "labels": {
+          "download": "Download",
+          "description": "Get the complete experience with the mobile app.",
+          "unavailable": "Not available for your operating system yet."
         }
       }
     },
@@ -94,7 +102,11 @@
     },
     "strings": {
       "success": "Success",
-      "error": "Error"
+      "error": "Error",
+      "ok": "OK",
+      "cancel": "Cancelar",
+      "yes": "Sim",
+      "no": "Não"
     },
     "errors": {
       "user_not_found": "User not found.",

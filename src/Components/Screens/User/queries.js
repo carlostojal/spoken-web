@@ -3,7 +3,7 @@ import { gql } from "@apollo/client";
 const queries = {
 
   GET_USER_DATA: gql`
-    query getUserData($id: Int) {
+    query getUserData($id: ID) {
       getUserData(id: $id) {
         username
         name
@@ -13,32 +13,30 @@ const queries = {
   `,
 
   GET_USER_POSTS: gql`
-    query getUserPosts($page: Int!, $perPage: Int!, $user_id: Int) {
-      getUserPosts(page: $page, perPage: $perPage, user_id: $user_id) {
-        id
+    query getUserPosts($user_id: ID) {
+      getUserPosts(user_id: $user_id) {
+        _id
         time
         poster {
-          id
+          _id
           name
           surname
           username
         }
         media {
-          id
+          _id
           is_nsfw
-          url
         }
         text
-        user_reacted
         edited
       }
     }
   `,
 
   FOLLOW: gql`
-    mutation follow($user_id: Int!) {
+    mutation follow($user_id: ID!) {
       followUser(id: $user_id) {
-        id
+        _id
       }
     }
   `
