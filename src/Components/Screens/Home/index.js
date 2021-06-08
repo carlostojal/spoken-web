@@ -30,6 +30,11 @@ export default function Home() {
   }, [t]);
 
   useEffect(() => {
+    if(userData && userData.getUserData)
+      localStorage.setItem("user", JSON.stringify(userData.getUserData));
+  }, [userData]);
+
+  useEffect(() => {
     if(feedData && feedData.getUserFeed) {
       setFeed(feedData.getUserFeed);
     }
@@ -42,9 +47,15 @@ export default function Home() {
         { salutation }
       </Header>
       <Nav />
-      { feed.map((post) => {
-        return <Post key={post._id} post={post} />
-      })}
+      <div style={{marginTop: "1em"}}>
+        { feed.map((post) => {
+          return (
+            <div key={post._id} style={{width: "40em", maxWidth: "100%", marginLeft: "auto", marginRight: "auto"}}>
+              <Post post={post} />
+            </div>
+          );
+        })}
+      </div>
     </>
   );
 }

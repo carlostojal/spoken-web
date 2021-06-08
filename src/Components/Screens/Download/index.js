@@ -15,15 +15,17 @@ export default function Download() {
       <Header>
         { t("screens.download.title") }
       </Header>
-      <div style={{color: "white"}}>
+      <p style={{color: "white", marginTop: ".5em"}}>
         { t("screens.download.labels.description") }
-      </div>
+      </p>
       { os.family === "Android" &&
-        <Button onClick={() => {
-          window.open(process.env.REACT_APP_DOWNLOAD_URL, "_blank")
-        }}>
-          { t("screens.download.labels.download") }
-        </Button>
+        <div style={{marginTop: "1em", width: "100%", display: "flex", flexDirection: "column"}}>
+          <Button onClick={() => {
+            window.open(process.env.REACT_APP_DOWNLOAD_URL, "_blank")
+          }}>
+            { t("screens.download.labels.download") }
+          </Button>
+        </div>
       }
       { os.family !== "Android" &&
         <div style={{color: "white"}}>

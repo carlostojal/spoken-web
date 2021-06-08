@@ -74,7 +74,8 @@
       "profile": {
         "labels": {
           "follow": "Follow",
-          "unfollow": "Unfollow"
+          "unfollow": "Unfollow",
+          "requested": "Requested"
         }
       },
       "download": {
@@ -104,11 +105,12 @@
       "success": "Success",
       "error": "Error",
       "ok": "OK",
-      "cancel": "Cancelar",
-      "yes": "Sim",
-      "no": "Não"
+      "cancel": "Cancel",
+      "yes": "Yes",
+      "no": "No"
     },
     "errors": {
+      "generic": "There was an error.",
       "user_not_found": "User not found.",
       "wrong_password": "Wrong password.",
       "email_not_confirmed": "Email not confirmed.",

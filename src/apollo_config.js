@@ -1,8 +1,10 @@
 import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
+import getFullBackendAddress from "./helpers/getFullBackendAddress";
+
 const httpLink = new createHttpLink({
-  uri: `${process.env.REACT_APP_APOLLO_ADDRESS}:${process.env.REACT_APP_APOLLO_PORT}${process.env.REACT_APP_APOLLO_ENDPOINT}`,
+  uri: getFullBackendAddress("api"),
   credentials: "include"
 });
 

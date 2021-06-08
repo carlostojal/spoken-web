@@ -74,7 +74,8 @@
       "profile": {
         "labels": {
           "follow": "Seguir",
-          "unfollow": "Deixar de seguir"
+          "unfollow": "Deixar de seguir",
+          "requested": "Pedido enviado"
         }
       },
       "download": {
@@ -109,6 +110,7 @@
       "no": "Não"
     },
     "errors": {
+      "generic": "Ocorreu um erro.",
       "user_not_found": "O utilizador não existe.",
       "wrong_password": "Palavra-passe errada.",
       "email_not_confirmed": "O email não foi verificado.",

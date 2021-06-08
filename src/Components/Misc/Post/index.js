@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
 import postDateFormat from "../../../helpers/postDateFormat";
+import getFullBackendAddress from "../../../helpers/getFullBackendAddress";
 import "./Post.css";
 
 function Post({ post }) {
@@ -28,7 +29,11 @@ function Post({ post }) {
       </div>
       <div className="post_body">
         { post.media && 
-          <img src={`${process.env.REACT_APP_MEDIA_SERVER_ADDRESS}:${process.env.REACT_APP_MEDIA_SERVER_PORT}/media/${post.media._id}`} className="post_img" alt={post.text} />
+          <>
+            { post.media.type === "image" &&
+              <img src={`${getFullBackendAddress("media")}/media/${post.media._id}`} className="post_img" alt={post.text} />
+            }
+          </>
         }
         <div className="post_text">
           {post.text}

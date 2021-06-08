@@ -5,9 +5,18 @@ const queries = {
   GET_USER_DATA: gql`
     query getUserData($id: ID) {
       getUserData(id: $id) {
+        _id
         username
         name
         surname
+        followers {
+          _id
+        }
+        following {
+          _id
+        }
+        profile_type
+        profile_privacy_type
       }
     }
   `,
@@ -25,6 +34,7 @@ const queries = {
         }
         media {
           _id
+          type
           is_nsfw
         }
         text
@@ -33,11 +43,15 @@ const queries = {
     }
   `,
 
+  CHECK_FOLLOW: gql`
+    query checkFollow($user_id: ID!) {
+      checkFollow(user_id: $user_id)
+    }
+  `,
+
   FOLLOW: gql`
     mutation follow($user_id: ID!) {
-      followUser(id: $user_id) {
-        _id
-      }
+      followUser(id: $user_id)
     }
   `
 }

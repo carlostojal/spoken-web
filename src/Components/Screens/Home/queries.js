@@ -17,6 +17,7 @@ const queries = {
         }
         media {
           _id
+          type
           is_nsfw
         }
         text
@@ -34,7 +35,16 @@ const queries = {
   GET_USER_DATA: gql`
     query getUserData {
       getUserData {
+        _id
+        username
         name
+        surname
+        followers {
+          _id
+        }
+        following {
+          _id
+        }
       }
     }
   `
