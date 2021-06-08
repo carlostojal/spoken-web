@@ -37,19 +37,24 @@ function Login() {
       swal(t("strings.error"), t(`errors.${loginError.graphQLErrors[0].message.toLowerCase()}`), "warning");
   }, [loginError, t]);
 
+  console.log(localStorage.getItem("suggested_download"));
+
   useEffect(() => {
     if(os.family === "Android") {
-      swal({
-        title: t("screens.download.title"), 
-        text: t("screens.download.labels.description"),
-        buttons: {
-          ok: t("strings.ok"),
-          cancel: t("strings.cancel")
-        }
-      }).then((result) => {
-        if(result && result === "ok")
-          history.push("/download");
-      });
+      if(localStorage.getItem("suggested_download") !== "true") {
+        localStorage.setItem("suggested_download", true);
+        swal({
+          title: t("screens.download.title"), 
+          text: t("screens.download.labels.description"),
+          buttons: {
+            ok: t("strings.ok"),
+            cancel: t("strings.cancel")
+          }
+        }).then((result) => {
+          if(result && result === "ok")
+            history.push("/download");
+        });
+      }
     }
   }, [t, os, history]);
 
