@@ -33,10 +33,8 @@ function Login() {
   }, [loginData, history]);
 
   useEffect(() => {
-    if(loginError) {
-      console.log(loginError);
-      // swal(t("strings.error"), t(`errors.${loginError.graphQLErrors[0].message.toLowerCase()}`), "warning");
-    }
+    if(loginError)
+      swal(t("strings.error"), t(`errors.${loginError.graphQLErrors[0].message.toLowerCase()}`), "warning");
   }, [loginError, t]);
 
   useEffect(() => {
