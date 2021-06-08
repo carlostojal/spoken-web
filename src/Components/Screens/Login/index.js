@@ -27,14 +27,16 @@ function Login() {
 
   useEffect(() => {
     if(loginData && loginData.getToken) {
-      localStorage.setItem("access_token", loginData.getToken);
+      localStorage.setItem("tokens", JSON.stringify(loginData.getToken));
       history.replace("/");
     }
   }, [loginData, history]);
 
   useEffect(() => {
-    if(loginError)
-      swal(t("strings.error"), t(`errors.${loginError.graphQLErrors[0].message.toLowerCase()}`), "warning");
+    if(loginError) {
+      console.log(loginError);
+      // swal(t("strings.error"), t(`errors.${loginError.graphQLErrors[0].message.toLowerCase()}`), "warning");
+    }
   }, [loginError, t]);
 
   useEffect(() => {

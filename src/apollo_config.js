@@ -10,12 +10,22 @@ const httpLink = new createHttpLink({
 
 const authLink = setContext((_, { headers }) => {
   
-  const token = localStorage.getItem("access_token");
+  const tokens = JSON.parse(localStorage.getItem("tokens"));
+
+  console.log(tokens);
+
+  if(!tokens)
+    return {
+      headers: {
+        ...headers
+      }
+    }
 
   return {
     headers: {
       ...headers,
-      authorization: token ? token : ""
+      authorization: tokens ? tokens.access : null,
+      session: tokens ? tokens.refresh : null
     }
   }
 });

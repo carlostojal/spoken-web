@@ -4,7 +4,10 @@ const queries = {
 
   GET_TOKEN: gql`
     query getToken($username: String!, $password: String!, $userPlatform: String, $pushToken: String) {
-      getToken(username: $username, password: $password, userPlatform: $userPlatform, pushToken: $pushToken) 
+      getToken(username: $username, password: $password, userPlatform: $userPlatform, pushToken: $pushToken) {
+        access
+        refresh
+      }
     }
   `,
 

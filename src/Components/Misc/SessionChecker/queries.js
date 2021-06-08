@@ -4,7 +4,10 @@ const queries = {
 
   REFRESH_TOKEN: gql`
     query refreshToken {
-      refreshToken
+      refreshToken {
+        access
+        refresh
+      }
     }
   `
 }

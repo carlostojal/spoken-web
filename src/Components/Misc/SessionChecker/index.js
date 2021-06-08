@@ -14,9 +14,8 @@ export default function SessionChecker(props) {
   }, [refreshSession]);
 
   useEffect(() => {
-    if(refreshData) {
-      // console.log(refreshData);
-    }
+    if(refreshData)
+      localStorage.setItem("tokens", JSON.stringify(refreshData.refreshToken));
   }, [refreshData]);
 
   useEffect(() => {
