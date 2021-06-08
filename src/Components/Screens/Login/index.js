@@ -37,8 +37,6 @@ function Login() {
       swal(t("strings.error"), t(`errors.${loginError.graphQLErrors[0].message.toLowerCase()}`), "warning");
   }, [loginError, t]);
 
-  console.log(localStorage.getItem("suggested_download"));
-
   useEffect(() => {
     if(os.family === "Android") {
       if(localStorage.getItem("suggested_download") !== "true") {
