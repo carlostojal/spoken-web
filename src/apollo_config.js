@@ -12,8 +12,6 @@ const authLink = setContext((_, { headers }) => {
   
   const tokens = JSON.parse(localStorage.getItem("tokens"));
 
-  console.log(tokens);
-
   if(!tokens)
     return {
       headers: {
